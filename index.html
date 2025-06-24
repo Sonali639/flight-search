@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - Flight Search</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <button class="theme-toggle btn" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+           <h1 class="display-4 mb-3 fw-bold">
+  <i class="fas fa-plane me-3"></i>BookFlight
+</h1>
+            <p class="lead">Search and compare flights from hundreds of airlines worldwide</p>
+        </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="container">
+        <div class="search-card">
+            <form id="flightSearchForm">
+                <div class="search-filters-flex">
+                    <div>
+                        <label class="form-label">From</label>
+                        <select class="form-select" id="fromCity" required>
+                            <option value="">Select departure city</option>
+                            <option value="DEL">Delhi (DEL)</option>
+                            <option value="BOM">Mumbai (BOM)</option>
+                            <option value="BLR">Bangalore (BLR)</option>
+                            <option value="CCU">Kolkata (CCU)</option>
+                            <option value="MAA">Chennai (MAA)</option>
+                            <option value="HYD">Hyderabad (HYD)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">To</label>
+                        <select class="form-select" id="toCity" required>
+                            <option value="">Select destination city</option>
+                            <option value="DEL">Delhi (DEL)</option>
+                            <option value="BOM">Mumbai (BOM)</option>
+                            <option value="BLR">Bangalore (BLR)</option>
+                            <option value="CCU">Kolkata (CCU)</option>
+                            <option value="MAA">Chennai (MAA)</option>
+                            <option value="HYD">Hyderabad (HYD)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Departure</label>
+                        <input type="date" class="form-control" id="departureDate" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Return</label>
+                        <input type="date" class="form-control" id="returnDate">
+                    </div>
+                    <div>
+                        <label class="form-label">Passengers</label>
+                        <select class="form-select" id="passengers">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Class</label>
+                        <select class="form-select" id="travelClass">
+                            <option value="economy">Economy</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-search">
+                        <i class="fas fa-search me-2"></i>Search Flights
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Section -->
+    <div class="container mt-4">
+        <div class="loading" id="loadingSection">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-3">Searching for the best flights...</p>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="container mt-4 mb-4  results-section" id="resultsSection">
+        <h3 class="mb-4">
+            <i class="fas fa-plane-departure me-2"></i>Available Flights
+        </h3>
+        <div id="flightResults" class="row g-4">
+        </div>
+    </div>
+
+    <!-- Flight Details Modal -->
+    <div class="modal fade" id="flightModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Flight Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
